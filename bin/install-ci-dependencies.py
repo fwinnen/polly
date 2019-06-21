@@ -152,6 +152,13 @@ def get_android_full_version_url():
     if platform.system() == 'Linux':
       return 'https://dl.google.com/android/repository/android-ndk-r17-linux-x86_64.zip', '1d886a64483adf3f3a3e3aaf7ac5084184006ac7',
 
+  if toolchain.startswith('android-ndk-r18b-'):
+    if platform.system() == 'Darwin':
+      return 'https://dl.google.com/android/repository/android-ndk-r18b-darwin-x86_64.zip', '98cb9909aa8c2dab32db188bbdc3ac6207e09440',
+    if platform.system() == 'Linux':
+      return 'https://dl.google.com/android/repository/android-ndk-r18b-linux-x86_64.zip', '500679655da3a86aecf67007e8ab230ea9b4dd7b',
+
+
   sys.exit('Android supported only for Linux and OSX')
 
 def get_android_url():
@@ -189,18 +196,18 @@ def get_android_url():
 def get_cmake_url():
   if platform.system() == 'Darwin':
     return (
-        'https://github.com/ruslo/CMake/releases/download/v3.12.3/cmake-3.12.3-Darwin-x86_64.tar.gz',
-        '1522c6aba682b3259f77b6b5f19b4780f72ec9b6'
+        'https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-Darwin-x86_64.tar.gz',
+        '94b6aa5f36fd20811eb6c5c036bb2ec154f2d652'
     )
   elif platform.system() == 'Linux':
     return (
-        'https://github.com/ruslo/CMake/releases/download/v3.12.3/cmake-3.12.3-Linux-x86_64.tar.gz',
-        '29243eec22552fd0a9cd2033224accba746811ed'
+        'https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-Linux-x86_64.tar.gz',
+        '5e4d2b4478485f1a16c91463fc91eea3a9487b7a'
     )
   elif platform.system() == 'Windows':
     return (
-        'https://github.com/ruslo/CMake/releases/download/v3.12.3/cmake-3.12.3-win64-x64.zip',
-        '565ec0e8ee93ec966f7db711aa0e468d46ede1f4'
+        'https://github.com/Kitware/CMake/releases/download/v3.15.0-rc1/cmake-3.15.0-rc1-win64-x64.zip',
+        '7e80389e441c8341f99190a8dacecc34aa4ecd54'
     )
   else:
     sys.exit('Unknown system: {}'.format(platform.system()))
@@ -257,8 +264,8 @@ if is_android:
 
 if is_ninja:
   ninja = FileToDownload(
-      'https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip',
-      '637cc6e144f5cc7c6388a30f3c32ad81b2e0442e',
+      'https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-win.zip',
+      'c68f192e85a12927443bbf535d27b4aa830e7b32',
       ninja_archive_local,
       ci_dir
   )

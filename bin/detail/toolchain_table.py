@@ -176,10 +176,10 @@ toolchain_table = [
     Toolchain('android-ndk-r17-api-19-armeabi-v7a-neon-hid-sections', 'Unix Makefiles'),
     Toolchain('android-ndk-r17-api-19-armeabi-v7a-neon-clang-libcxx', 'Unix Makefiles'),
 
-    Toolchain('android-ndk-r18-api-19-x86-64-clang-libcxx14', 'Unix Makefiles'),
+    Toolchain('android-ndk-r18-api-21-x86-64-clang-libcxx14', 'Unix Makefiles'),
     Toolchain('android-ndk-r18-api-19-x86-clang-libcxx14', 'Unix Makefiles'),
     Toolchain('android-ndk-r18-api-21-arm64-v8a-clang-libcxx14', 'Unix Makefiles'),
-    Toolchain('android-ndk-r18-api-21-armeabi-v7a-clang-libcxx14', 'Unix Makefiles'),
+    Toolchain('android-ndk-r18-api-19-armeabi-v7a-clang-libcxx14', 'Unix Makefiles'),
 
     Toolchain('android-ndk-r18-api-24-arm64-v8a-clang-libcxx14', 'Unix Makefiles'),
     Toolchain('android-ndk-r18b-api-24-arm64-v8a-clang-libcxx11', 'Unix Makefiles'),
@@ -521,6 +521,7 @@ if platform.system() == 'Linux':
 if platform.system() == 'Darwin':
   toolchain_table += [
       Toolchain('ios', 'Xcode'),
+      Toolchain('ios-nocodesign-13-0-dep-9-3', 'Xcode', ios_version='13.0', nocodesign=True),
       Toolchain('ios-nocodesign-12-2-dep-9-3-arm64+simulator', 'Xcode', ios_version='12.2', nocodesign=True),
       Toolchain('ios-nocodesign-12-2-dep-9-3', 'Xcode', ios_version='12.2', nocodesign=True),
       Toolchain('ios-nocodesign-12-2-dep-9-3-64', 'Xcode', ios_version='12.2', nocodesign=True),

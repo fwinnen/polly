@@ -58,6 +58,11 @@ macro(find_host_program)
  set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 endmacro()
 
+
+#set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
 # ANDROID macro is not defined by CMake 3.7+, however it is used by
 # some packages like OpenCV
 # (https://gitlab.kitware.com/cmake/cmake/merge_requests/62)

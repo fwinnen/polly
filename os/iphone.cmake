@@ -47,6 +47,24 @@ if(NOT XCODEBUILD_EXECUTABLE)
   polly_fatal_error("xcodebuild not found")
 endif()
 
+string(COMPARE EQUAL "${IOS_SDK_VERSION}" "latest" _use_latest)
+if(_use_latest)
+  execute_process(
+    COMMAND
+    sh
+    -c
+    "xcodebuild -showsdks -sdk iphoneos | sed -En \"s/.*sdk iphoneos(.*)\\n/\\1/p\""
+    OUTPUT_VARIABLE IOS_SDK_LATEST_VERSION_RESULT_VARIABLE
+    RESULT_VARIABLE IOS_SDK_LATEST_VERSION_RESULT
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  if(NOT "${IOS_SDK_LATEST_VERSION_RESULT}" EQUAL 0)
+    polly_fatal_error("iOS latest version not found (${IOS_SDK_LATEST_VERSION_RESULT}, ${IOS_SDK_LATEST_VERSION_RESULT_VARIABLE})")
+  endif()
+  set(IOS_SDK_VERSION ${IOS_SDK_LATEST_VERSION_RESULT_VARIABLE})
+endif()
+
+
 # Check version exists
 execute_process(
     COMMAND

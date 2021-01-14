@@ -521,7 +521,7 @@ if platform.system() == 'Linux':
 if platform.system() == 'Darwin':
   toolchain_table += [
       Toolchain('ios', 'Xcode'),
-      Toolchain('ios-nocodesign-13-0-dep-9-3', 'Xcode', ios_version='13.0', nocodesign=True),
+      Toolchain('ios-nocodesign-13-0-dep-9-3', 'Xcode', ios_version='13.0', nocodesign=True, toolset="buildsystem=1"),
       Toolchain('ios-nocodesign-12-2-dep-9-3-arm64+simulator', 'Xcode', ios_version='12.2', nocodesign=True),
       Toolchain('ios-nocodesign-12-2-dep-9-3', 'Xcode', ios_version='12.2', nocodesign=True),
       Toolchain('ios-nocodesign-12-2-dep-9-3-64', 'Xcode', ios_version='12.2', nocodesign=True),
@@ -625,7 +625,7 @@ if platform.system() == 'Darwin':
       Toolchain('ios-dep-8-0-arm64-cxx11', 'Xcode'),
       Toolchain('ios-dep-8-0-arm64-armv7-hid-sections-cxx11', 'Xcode'),
       Toolchain('ios-dep-8-0-arm64-armv7-hid-sections-lto-cxx11', 'Xcode'),
-      Toolchain('ios-nocodesign', 'Xcode', nocodesign=True),
+      Toolchain('ios-nocodesign', 'Xcode', nocodesign=True, toolset="buildsystem=1"),
       Toolchain('ios-nocodesign-arm64', 'Xcode', ios_version='8.1', nocodesign=True),
       Toolchain('ios-nocodesign-armv7', 'Xcode', ios_version='8.1', nocodesign=True),
       Toolchain('ios-nocodesign-hid-sections', 'Xcode', ios_version='8.1', nocodesign=True),
